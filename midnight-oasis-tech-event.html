@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مؤتمر التكنولوجيا 2025 | Technology Conference 2025</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #0F172A; /* Midnight Oasis Background */
+            color: #F1F5F9; /* Soft white text */
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #0F172A, #1E293B);
+            color: #F1F5F9;
+            padding: 1rem 0;
+            box-shadow: 0 2px 15px rgba(0, 240, 255, 0.2); /* Neon glow effect */
+            border-bottom: 1px solid rgba(0, 240, 255, 0.3);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #00F0FF; /* Neon turquoise */
+            text-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 1.5rem;
+            margin-right: 1.5rem;
+        }
+        
+        .nav-links a {
+            color: #F1F5F9;
+            text-decoration: none;
+            transition: color 0.3s;
+            position: relative;
+        }
+        
+        .nav-links a:hover {
+            color: #00F0FF; /* Neon turquoise */
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: #00F0FF;
+            transition: width 0.3s;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .lang-switch {
+            background: rgba(0, 240, 255, 0.2);
+            border: 1px solid #00F0FF;
+            color: #F1F5F9;
+            padding: 5px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .lang-switch:hover {
+            background: rgba(0, 240, 255, 0.4);
+            box-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
+        }
+        
+        .hero {
+            padding: 6rem 0;
+            text-align: center;
+            background: url('/api/placeholder/1200/400') center/cover no-repeat;
+            color: #F1F5F9;
+            position: relative;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.7));
+            z-index: 1;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: #F1F5F9;
+            text-shadow: 0 0 20px rgba(0, 240, 255, 0.5);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            color: #F1F5F9;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: transparent;
+            color: #00F0FF;
+            padding: 0.8rem 1.8rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+            border: 2px solid #00F0FF;
+            box-shadow: 0 0 10px rgba(0, 240, 255, 0.3);
+        }
+        
+        .btn:hover {
+            background: rgba(0, 240, 255, 0.1);
+            box-shadow: 0 0 20px rgba(0, 240, 255, 0.5);
+            transform: translateY(-2px);
+        }
+        
+        .section {
+            padding: 5rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2.2rem;
+            position: relative;
+            color: #F1F5F9;
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background: #C084FC; /* Lavender accent */
+            margin: 0.8rem auto;
+            box-shadow: 0 0 10px rgba(192, 132, 252, 0.5);
+        }
+        
+        .speakers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .speaker-card {
+            background: rgba(30, 41, 59, 0.5); /* Slightly lighter than background */
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s;
+            border: 1px solid rgba(192, 132, 252, 0.2);
+        }
+        
+        .speaker-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4), 0 0 15px rgba(0, 240, 255, 0.3);
+            border-color: rgba(0, 240, 255, 0.4);
+        }
+        
+        .speaker-img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-bottom: 2px solid rgba(192, 132, 252, 0.3);
+        }
+        
+        .speaker-info {
+            padding: 1.5rem;
+        }
+        
+        .speaker-name {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: #00F0FF;
+        }
+        
+        .speaker-role {
+            color: #C084FC; /* Lavender accent */
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+        
+        .schedule {
+            background: rgba(30, 41, 59, 0.3);
+        }
+        
+        .schedule-item {
+            background: rgba(15, 23, 42, 0.8);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+            border-left: 3px solid #C084FC; /* Lavender accent */
+            transition: all 0.3s;
+        }
+        
+        .schedule-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3), 0 0 10px rgba(192, 132, 252, 0.3);
+        }
+        
+        .schedule-time {
+            font-weight: bold;
+            color: #00F0FF; /* Neon turquoise */
+            margin-bottom: 0.8rem;
+        }
+        
+        .schedule-title {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: #F1F5F9;
+        }
+        
+        .schedule-speaker {
+            color: #C084FC; /* Lavender accent */
+            font-style: italic;
+        }
+        
+        .register {
+            text-align: center;
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.9), rgba(30, 41, 59, 0.8));
+            color: #F1F5F9;
+        }
+        
+        .register-form {
+            max-width: 500px;
+            margin: 0 auto;
+            background: rgba(30, 41, 59, 0.7);
+            padding: 2.5rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2), 0 0 15px rgba(0, 240, 255, 0.1);
+            color: #F1F5F9;
+            border: 1px solid rgba(0, 240, 255, 0.2);
+        }
+        
+        .form-group {
+            margin-bottom: 1.8rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.7rem;
+            font-weight: 500;
+            color: #C084FC; /* Lavender accent */
+        }
+        
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 0.9rem;
+            background: rgba(15, 23, 42, 0.7);
+            border: 1px solid rgba(0, 240, 255, 0.3);
+            border-radius: 5px;
+            font-size: 1rem;
+            color: #F1F5F9;
+            transition: all 0.3s;
+        }
+        
+        .form-group input:focus, .form-group select:focus {
+            outline: none;
+            border-color: #00F0FF;
+            box-shadow: 0 0 10px rgba(0, 240, 255, 0.3);
+        }
+        
+        .form-group input::placeholder {
+            color: rgba(241, 245, 249, 0.5);
+        }
+        
+        .submit-btn {
+            background: transparent;
+            color: #00F0FF;
+            border: 2px solid #00F0FF;
+            padding: 0.9rem 1.5rem;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 100%;
+            font-weight: bold;
+            box-shadow: 0 0 10px rgba(0, 240, 255, 0.2);
+        }
+        
+        .submit-btn:hover {
+            background: rgba(0, 240, 255, 0.1);
+            box-shadow: 0 0 20px rgba(0, 240, 255, 0.4);
+        }
+        
+        footer {
+            background: rgba(15, 23, 42, 0.9);
+            color: #F1F5F9;
+            text-align: center;
+            padding: 3rem 0;
+            border-top: 1px solid rgba(0, 240, 255, 0.2);
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .social-links {
+            display: flex;
+            margin: 1.5rem 0;
+        }
+        
+        .social-links a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: rgba(192, 132, 252, 0.1);
+            border-radius: 50%;
+            margin: 0 0.8rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #F1F5F9;
+            text-decoration: none;
+            transition: all 0.3s;
+            border: 1px solid rgba(192, 132, 252, 0.3);
+        }
+        
+        .social-links a:hover {
+            background: rgba(192, 132, 252, 0.2);
+            border-color: #C084FC;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2), 0 0 10px rgba(192, 132, 252, 0.3);
+        }
+        
+        /* Language Specific Styles */
+        html[lang="en"] .ar-content {
+            display: none;
+        }
+        
+        html[lang="ar"] .en-content {
+            display: none;
+        }
+        
+        html[lang="en"] {
+            direction: ltr;
+        }
+        
+        html[lang="en"] .form-group {
+            text-align: left;
+        }
+        
+        html[lang="ar"] .form-group {
+            text-align: right;
+        }
+        
+        html[lang="en"] .nav-links li {
+            margin-left: 1.5rem;
+            margin-right: 0;
+        }
+        
+        html[lang="ar"] .nav-links li {
+            margin-right: 1.5rem;
+            margin-left: 0;
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .speakers-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <span class="ar-content">تك كونف 2025</span>
+                    <span class="en-content">TechConf 2025</span>
+                </div>
+                <ul class="nav-links">
+                    <li>
+                        <a href="#home" class="ar-content">الرئيسية</a>
+                        <a href="#home" class="en-content">Home</a>
+                    </li>
+                    <li>
+                        <a href="#speakers" class="ar-content">المتحدثون</a>
+                        <a href="#speakers" class="en-content">Speakers</a>
+                    </li>
+                    <li>
+                        <a href="#schedule" class="ar-content">الجدول</a>
+                        <a href="#schedule" class="en-content">Schedule</a>
+                    </li>
+                    <li>
+                        <a href="#register" class="ar-content">التسجيل</a>
+                        <a href="#register" class="en-content">Register</a>
+                    </li>
+                </ul>
+                <button class="lang-switch" onclick="toggleLanguage()">
+                    <span class="ar-content">English</span>
+                    <span class="en-content">العربية</span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="container">
+                <h1 class="ar-content">مؤتمر التكنولوجيا 2025</h1>
+                <h1 class="en-content">Technology Conference 2025</h1>
+                
+                <p class="ar-content">انضم إلينا في أكبر حدث تقني في المنطقة واستكشف أحدث الابتكارات والاتجاهات في عالم التكنولوجيا</p>
+                <p class="en-content">Join us at the region's largest tech event and explore the latest innovations and trends in technology</p>
+                
+                <a href="#register" class="btn ar-content">سجل الآن</a>
+                <a href="#register" class="btn en-content">Register Now</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="speakers" class="section">
+        <div class="container">
+            <h2 class="section-title ar-content">المتحدثون المميزون</h2>
+            <h2 class="section-title en-content">Featured Speakers</h2>
+            
+            <div class="speakers-grid">
+                <div class="speaker-card">
+                    <img src="/api/placeholder/300/300" alt="Speaker" class="speaker-img">
+                    <div class="speaker-info">
+                        <h3 class="speaker-name ar-content">د. فاطمة الزهراء</h3>
+                        <h3 class="speaker-name en-content">Dr. Fatima Al-Zahra</h3>
+                        
+                        <p class="speaker-role ar-content">خبيرة الذكاء الاصطناعي</p>
+                        <p class="speaker-role en-content">AI Expert</p>
+                        
+                        <p class="ar-content">متخصصة في تطبيقات الذكاء الاصطناعي في مجال الرعاية الصحية وعلوم البيانات.</p>
+                        <p class="en-content">Specialized in AI applications in healthcare and data science.</p>
+                    </div>
+                </div>
+                <div class="speaker-card">
+                    <img src="/api/placeholder/300/300" alt="Speaker" class="speaker-img">
+                    <div class="speaker-info">
+                        <h3 class="speaker-name ar-content">م. أحمد الحسيني</h3>
+                        <h3 class="speaker-name en-content">Eng. Ahmed Al-Husseini</h3>
+                        
+                        <p class="speaker-role ar-content">مدير التكنولوجيا - شركة تك فيوتشر</p>
+                        <p class="speaker-role en-content">CTO - TechFuture</p>
+                        
+                        <p class="ar-content">خبير في تطوير البرمجيات وتصميم أنظمة التعلم الآلي للشركات الناشئة.</p>
+                        <p class="en-content">Expert in software development and machine learning system design for startups.</p>
+                    </div>
+                </div>
+                <div class="speaker-card">
+                    <img src="/api/placeholder/300/300" alt="Speaker" class="speaker-img">
+                    <div class="speaker-info">
+                        <h3 class="speaker-name ar-content">د. سارة المهندس</h3>
+                        <h3 class="speaker-name en-content">Dr. Sara Al-Muhandis</h3>
+                        
+                        <p class="speaker-role ar-content">مؤسسة شركة تك سمارت</p>
+                        <p class="speaker-role en-content">Founder of TechSmart</p>
+                        
+                        <p class="ar-content">رائدة أعمال في مجال التكنولوجيا ومتخصصة في تطبيقات إنترنت الأشياء.</p>
+                        <p class="en-content">Tech entrepreneur specialized in IoT applications.</p>
+                    </div>
+                </div>
+                <div class="speaker-card">
+                    <img src="/api/placeholder/300/300" alt="Speaker" class="speaker-img">
+                    <div class="speaker-info">
+                        <h3 class="speaker-name ar-content">م. خالد العمري</h3>
+                        <h3 class="speaker-name en-content">Eng. Khalid Al-Omari</h3>
+                        
+                        <p class="speaker-role ar-content">خبير أمن المعلومات</p>
+                        <p class="speaker-role en-content">Cybersecurity Expert</p>
+                        
+                        <p class="ar-content">متخصص في أمن السيبراني وحماية البيانات في المؤسسات الكبرى.</p>
+                        <p class="en-content">Specialized in cybersecurity and data protection for large organizations.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="schedule" class="section schedule">
+        <div class="container">
+            <h2 class="section-title ar-content">جدول المؤتمر</h2>
+            <h2 class="section-title en-content">Conference Schedule</h2>
+            
+            <div class="schedule-list">
+                <div class="schedule-item">
+                    <div class="schedule-time">9:00 - 10:00</div>
+                    <h3 class="schedule-title ar-content">التسجيل واستقبال</h3>
+                    <h3 class="schedule-title en-content">Registration & Welcome</h3>
+                </div>
+                <div class="schedule-item">
+                    <div class="schedule-time">10:00 - 11:30</div>
+                    <h3 class="schedule-title ar-content">مستقبل الذكاء الاصطناعي في الشرق الأوسط</h3>
+                    <h3 class="schedule-title en-content">The Future of AI in the Middle East</h3>
+                    
+                    <p class="schedule-speaker ar-content">د. فاطمة الزهراء</p>
+                    <p class="schedule-speaker en-content">Dr. Fatima Al-Zahra</p>
+                </div>
+                <div class="schedule-item">
+                    <div class="schedule-time">11:45 - 13:00</div>
+                    <h3 class="schedule-title ar-content">تطوير تطبيقات الويب بالعربية: التحديات والحلول</h3>
+                    <h3 class="schedule-title en-content">Arabic Web Development: Challenges & Solutions</h3>
+                    
+                    <p class="schedule-speaker ar-content">م. أحمد الحسيني</p>
+                    <p class="schedule-speaker en-content">Eng. Ahmed Al-Husseini</p>
+                </div>
+                <div class="schedule-item">
+                    <div class="schedule-time">13:00 - 14:00</div>
+                    <h3 class="schedule-title ar-content">استراحة الغداء</h3>
+                    <h3 class="schedule-title en-content">Lunch Break</h3>
+                </div>
+                <div class="schedule-item">
+                    <div class="schedule-time">14:00 - 15:30</div>
+                    <h3 class="schedule-title ar-content">الاستثمار في شركات التكنولوجيا الناشئة</h3>
+                    <h3 class="schedule-title en-content">Investing in Tech Startups</h3>
+                    
+                    <p class="schedule-speaker ar-content">د. سارة المهندس</p>
+                    <p class="schedule-speaker en-content">Dr. Sara Al-Muhandis</p>
+                </div>
+                <div class="schedule-item">
+                    <div class="schedule-time">15:45 - 17:00</div>
+                    <h3 class="schedule-title ar-content">أمن المعلومات في عصر التحول الرقمي</h3>
+                    <h3 class="schedule-title en-content">Information Security in the Digital Transformation Era</h3>
+                    
+                    <p class="schedule-speaker ar-content">م. خالد العمري</p>
+                    <p class="schedule-speaker en-content">Eng. Khalid Al-Omari</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="register" class="section register">
+        <div class="container">
+            <h2 class="section-title ar-content">سجل الآن</h2>
+            <h2 class="section-title en-content">Register Now</h2>
+            
+            <div class="register-form">
+                <form>
+                    <div class="form-group">
+                        <label for="name" class="ar-content">الاسم الكامل</label>
+                        <label for="name" class="en-content">Full Name</label>
+                        <input type="text" id="name" class="ar-content" placeholder="أدخل اسمك الكامل">
+                        <input type="text" id="name-en" class="en-content" placeholder="Enter your full name">
+                    </div>
+                    <div class="form-group">
+                        <label for="email" class="ar-content">البريد الإلكتروني</label>
+                        <label for="email" class="en-content">Email Address</label>
+                        <input type="email" id="email" class="ar-content" placeholder="أدخل بريدك الإلكتروني">
+                        <input type="email" id="email-en" class="en-content" placeholder="Enter your email address">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone" class="ar-content">رقم الهاتف</label>
+                        <label for="phone" class="en-content">Phone Number</label>
+                        <input type="tel" id="phone" class="ar-content" placeholder="أدخل رقم هاتفك">
+                        <input type="tel" id="phone-en" class="en-content" placeholder="Enter your phone number">
+                    </div>
+                    <div class="form-group">
+                        <label for="org" class="ar-content">الشركة / المؤسسة</label>
+                        <label for="org" class="en-content">Company / Organization</label>
+                        <input type="text" id="org" class="ar-content" placeholder="أدخل اسم شركتك أو مؤسستك">
+                        <input type="text" id="org-en" class="en-content" placeholder="Enter your company or organization">
+                    </div>
+                    <div class="form-group">
+                        <label for="ticket" class="ar-content">نوع التذكرة</label>
+                        <label for="ticket" class="en-content">Ticket Type</label>
+                        <select id="ticket" class="ar-content">
+                            <option value="standard">قياسية</option>
+                            <option value="premium">متميزة (VIP)</option>
+                            <option value="student">طالب</option>
+                        </select>
+                        <select id="ticket-en" class="en-content">
+                            <option value="standard">Standard</option>
+                            <option value="premium">Premium (VIP)</option>
+                            <option value="student">Student</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="submit-btn ar-content">تأكيد التسجيل</button>
+                    <button type="submit" class="submit-btn en-content">Confirm Registration</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p class="ar-content">مؤتمر التكنولوجيا 2025 - جميع الحقوق محفوظة &copy;</p>
+                <p class="en-content">Technology Conference 2025 - All Rights Reserved &copy;</p>
+                
+                <div class="social-links">
+                    <a href="#"><i class="fab">F</i></a>
+                    <a href="#"><i class="fab">T</i></a>
+                    <a href="#"><i class="fab">L</i></a>
+                    <a href="#"><i class="fab">I</i></a>
+                </div>
+                
+                <p class="ar-content">للاستفسارات: info@techconf2025.com</p>
+                <p class="en-content">For inquiries: info@techconf2025.com</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleLanguage() {
+            const html = document.documentElement;
+            if (html.lang === "ar") {
+                html.lang = "en";
+                html.dir = "ltr";
+            } else {
+                html.lang = "ar";
+                html.dir = "rtl";
+            }
+        }
+        
+        // Set default language to English on load for demo purposes
+        document.addEventListener('DOMContentLoaded', function() {
+            document.documentElement.lang = "en";
+            document.documentElement.dir = "ltr";
+        });
+    </script>
+</body>
+</html>
